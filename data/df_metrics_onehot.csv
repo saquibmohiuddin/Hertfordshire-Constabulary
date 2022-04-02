@@ -1,0 +1,7 @@
+model,best_score,best_params
+svm,0.16514559752725505,"{'C': 1, 'kernel': 'rbf'}"
+random_forest,0.35850933498686915,{'n_estimators': 10}
+logistic_regression,0.17374909935587915,"{'C': 10, 'solver': 'saga'}"
+naive_bayes_gaussian,,{}
+decision_tree,0.16515306682490974,{'criterion': 'gini'}
+XGBClassifier,0.18425195551550191,"{'colsample_bytree': 0.7, 'learning_rate': 0.4, 'max_depth': 7, 'n_estimators': 9}"
