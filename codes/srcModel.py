@@ -1,14 +1,14 @@
 import pandas as pd 
 import numpy as np 
 from numpy import linspace
-import seaborn as sns
+
+from sklearn.pipeline import Pipeline
 
 from sklearn.preprocessing import MinMaxScaler
 
 from sklearn.model_selection import train_test_split # data split
 from sklearn.tree import DecisionTreeClassifier # Decision tree algorithm
 from sklearn.metrics import classification_report, roc_auc_score, roc_curve, auc, confusion_matrix, accuracy_score, f1_score
-from sklearn.metrics import plot_confusion_matrix
 
 from sklearn.ensemble import RandomForestClassifier # Random forest tree algorithm
 from xgboost import XGBClassifier # XGBoost algorithm
@@ -44,7 +44,7 @@ x_train[col_to_scale] = scaler.fit_transform(x_train[col_to_scale])
 x_test[col_to_scale] = scaler.transform(x_test[col_to_scale])
 
 
-model_params = {
+ModelParams = {
     'random_forest': {
         'model': RandomForestClassifier(),
         'params' : {
@@ -69,7 +69,7 @@ model_params = {
 
 scores = []
 
-for model_name, mp in model_params.items():
+for model_name, mp in ModelParams.items():
     clf =  GridSearchCV(mp['model'], mp['params'], cv=5, 
     scoring = "f1", return_train_score=False)
     clf.fit(x_train, y_train)
